@@ -7,7 +7,7 @@ interface Props{
   [x:string]: any;
 }
 
-const ModalComponent: React.FC<Props> = (props) => {
+function ModalComponent(props: Props) {
   return (
     <Modal
       {...props}
