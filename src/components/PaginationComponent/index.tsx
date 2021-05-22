@@ -1,18 +1,22 @@
 import Pagination from "react-bootstrap/Pagination";
 
-interface Props{
+interface Props {
   pageCount: number;
-  [x:string]: any;
+  active: number;
+  handlePageClick: any
 }
 
-function PaginationComponent(props:Props) {
-  let active = 1;
-  let total = props.pageCount;
-  let items = []
+function PaginationComponent({ pageCount, active, handlePageClick }: Props) {
+  let total = pageCount;
+  let items = [];
 
   for (let number = 1; number <= total; number++) {
     items.push(
-      <Pagination.Item key={number} onClick={props.handlePageClick}>
+      <Pagination.Item
+        key={number}
+        active={number === active}
+        onClick={handlePageClick}
+      >
         {number}
       </Pagination.Item>
     );
