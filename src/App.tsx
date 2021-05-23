@@ -39,7 +39,7 @@ function App() {
     function searchFilter() {
       setOffset(0);
       let result = products.filter((element: Ferramenta) => {
-        return element.name.toLowerCase().includes(searchInput);
+        return element.name.toLowerCase().includes(searchInput.toLowerCase());
       });
       setFilteredProducts(result);
     }
