@@ -7,14 +7,16 @@ type Props = {
   handleProductClick?: any;
   url?: string;
   modal?: boolean;
+  idTest: number;
 };
 
-function MiniCard({ icon, handleProductClick, name, url, modal }: Props) {
+function MiniCard({ icon, handleProductClick, name, url, modal, idTest }: Props) {
   return (
     <Card
       className={`card col-11 m-4 p-3 align-items-center ${
         modal ? "col-md-3" : "col-md-2"
       }`}
+      data-testid={`productData${idTest}`}
     >
       <Card.Img variant="top" src={icon} style={{ width: "100px" }} />
       <Button

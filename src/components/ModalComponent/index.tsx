@@ -46,13 +46,14 @@ function ModalComponent({ selectedProduct, lastVisited,  ...props }: Props) {
             lastVisited
               .slice(0, -1)
               .slice(Math.max(lastVisited.length - 4, 0))
-              .map((element) => {
+              .map((element, index) => {
                 return (
                   <MiniCard
                     icon={element.icon}
                     name={element.name}
                     url={element.link}
                     modal={true}
+                    key={index}
                   />
                 );
               })

@@ -29,7 +29,7 @@ function App() {
   const [selectedProduct, setSelectedProduct] = useState<Ferramenta>();
   const [lastVisited, setLastVisited] = useState([]);
 
-  const perPage = 12;
+  const PER_PAGE = 12;
 
   useEffect(() => {
     function searchFilter() {
@@ -63,9 +63,9 @@ function App() {
 
   useEffect(() => {
     function paginator() {
-      const slice = filteredProducts.slice(offset, offset + perPage);
+      const slice = filteredProducts.slice(offset, offset + PER_PAGE);
       setPaginatedProducts(slice);
-      setPageCount(Math.ceil(filteredProducts.length / perPage));
+      setPageCount(Math.ceil(filteredProducts.length / PER_PAGE));
     }
 
     paginator();
@@ -74,7 +74,7 @@ function App() {
   function handlePageClick(e: any) {
     const selectedPage = Number(e.target.innerHTML);
     setSelectedPage(selectedPage);
-    setOffset((selectedPage - 1) * perPage);
+    setOffset((selectedPage - 1) * PER_PAGE);
   }
 
   function handleProductClick(e: any) {
@@ -100,12 +100,14 @@ function App() {
       <SearchBar setSearchInput={setSearchInput} />
 
       <div className="d-flex row justify-content-around mb-5">
-        {paginatedProducts.map((element: Ferramenta) => {
+        {paginatedProducts.map((element: Ferramenta, index) => {
           return (
             <MiniCard
               icon={element.icon}
               name={element.name}
               handleProductClick={handleProductClick}
+              key={index}
+              idTest={index}
             />
           );
         })}
