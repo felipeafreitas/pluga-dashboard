@@ -22,7 +22,11 @@ interface Props {
 function ModalComponent({ selectedProduct, lastVisited, ...props }: Props) {
   return (
     <Modal {...props} size="lg" centered>
-      <Modal.Body className="p-5" style={{ backgroundColor: "#343A40" }}>
+      <Modal.Body
+        className="p-5"
+        style={{ backgroundColor: "#343A40" }}
+        data-testid={`modalProduct`}
+      >
         <div className="mb-5 row flex-wrap justify-content-around">
           <div className="col-12 col-md-6 text-right">
             <img

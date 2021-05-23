@@ -32,6 +32,7 @@ function MiniCard({
         onClick={handleProductClick}
         className="mt-3"
         href={url}
+        data-testid={`productButton${idTest}`}
       >
         {name}
       </Button>

@@ -104,7 +104,7 @@ function App() {
       <SearchBar setSearchInput={setSearchInput} />
 
       <main className="d-flex row justify-content-around mb-5">
-        {paginatedProducts.length > 1 ? (
+        {paginatedProducts.length > 0 ? (
           paginatedProducts.map((element: Ferramenta, index) => {
             return (
               <MiniCard
