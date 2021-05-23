@@ -3,6 +3,8 @@ import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import MiniCard from "../MiniCard";
 
+import "./style.css";
+
 type Ferramenta = {
   app_id: string;
   name: string;
@@ -17,16 +19,20 @@ interface Props {
   [x: string]: any;
 }
 
-function ModalComponent({ selectedProduct, lastVisited,  ...props }: Props) {
+function ModalComponent({ selectedProduct, lastVisited, ...props }: Props) {
   return (
     <Modal {...props} size="lg" centered>
-      <Modal.Header closeButton />
-      <Modal.Body className="p-5">
+      <Modal.Body className="p-5" style={{ backgroundColor: "#343A40" }}>
         <div className="mb-5 row flex-wrap justify-content-around">
-          <div className="col-12 col-md-6 text-right ">
+          <div className="col-12 col-md-6 text-right">
             <img
               src={selectedProduct?.icon}
-              style={{ width: "256px" }}
+              style={{
+                width: "256px",
+                backgroundColor: "#343A40",
+                padding: 20,
+                borderRadius: 10,
+              }}
               alt={selectedProduct?.name}
             />
           </div>
@@ -58,7 +64,7 @@ function ModalComponent({ selectedProduct, lastVisited,  ...props }: Props) {
                 );
               })
           ) : (
-            <Alert variant="light">Nenhuma ferramenta foi visualizada</Alert>
+            <Alert variant="dark">Nenhuma ferramenta foi visualizada</Alert>
           )}
         </div>
       </Modal.Body>

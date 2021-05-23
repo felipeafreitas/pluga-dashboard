@@ -2,7 +2,11 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+
+import "./style.css";
+
 import Container from "react-bootstrap/Container";
+import Alert from "react-bootstrap/Alert";
 
 import ModalComponent from "./components/ModalComponent";
 import PaginationComponent from "./components/PaginationComponent";
@@ -99,19 +103,23 @@ function App() {
     <Container>
       <SearchBar setSearchInput={setSearchInput} />
 
-      <div className="d-flex row justify-content-around mb-5">
-        {paginatedProducts.map((element: Ferramenta, index) => {
-          return (
-            <MiniCard
-              icon={element.icon}
-              name={element.name}
-              handleProductClick={handleProductClick}
-              key={index}
-              idTest={index}
-            />
-          );
-        })}
-      </div>
+      <main className="d-flex row justify-content-around mb-5">
+        {paginatedProducts.length > 1 ? (
+          paginatedProducts.map((element: Ferramenta, index) => {
+            return (
+              <MiniCard
+                icon={element.icon}
+                name={element.name}
+                handleProductClick={handleProductClick}
+                key={index}
+                idTest={index}
+              />
+            );
+          })
+        ) : (
+          <Alert variant="dark">Sem resultados</Alert>
+        )}
+      </main>
 
       <ModalComponent
         show={modalShow}
